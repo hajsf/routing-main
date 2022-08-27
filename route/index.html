@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>تخطيط حركة قطوف</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar" dir="rtl">
+        <div>
+          <b>نقطة الإنطلاق:</b>
+          <select id="start">
+            <option value="26.372326,50.041064">الدمام</option>
+            <option value="26.389912556936213,50.06548251819587">الفيصليه</option>
+            <option value="26.363484395480395,50.07322913456914">الندى</option>
+            <option value="26.290115386982126,50.19897332751544">العقربية</option>
+            <option value="26.371243939974352,49.97096811155474">الشرق</option>
+          </select>
+          <br />
+          <b>نقاط على الطريق:</b> <br />
+          <i>(Ctrl+Click يمكن إختيار أكثر من منقطة بالضغط على)</i> <br />
+          <select multiple id="waypoints">
+            <option value="26.372326,50.041064">الدمام</option>
+            <option value="26.389912556936213,50.06548251819587">الفيصليه</option>
+            <option value="26.363484395480395,50.07322913456914">الندى</option>
+            <option value="26.290115386982126,50.19897332751544">العقربية</option>
+            <option value="26.371243939974352,49.97096811155474">الشرق</option>
+          </select>
+          <br />
+          <b>نقطة النهاية:</b>
+          <select id="end">
+            <option value="26.372326,50.041064">الدمام</option>
+            <option value="26.389912556936213,50.06548251819587">الفيصليه</option>
+            <option value="26.363484395480395,50.07322913456914">الندى</option>
+            <option value="26.290115386982126,50.19897332751544">العقربية</option>
+            <option value="26.371243939974352,49.97096811155474">الشرق</option>
+          </select>
+          <br />
+          <button type="submit" id="submit">خطط الرحله</button>
+        </div>
+        <div id="directions-panel" dir="rtl"></div>
+      </div>
+    </div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
